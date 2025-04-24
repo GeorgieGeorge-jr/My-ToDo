@@ -3,28 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Enhanced To-Do List</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/0b7df4284b.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <div id="container">
         <div class="text">
-
-            <h2>To-Do List</h2>
-
-        <div style="display: inline-flex;">
-            <input type="text" id="listInput" placeholder="Enter Task">
-            <button type="button" id="addTaskBtn"><i class="fa-solid fa-plus"></i></button>
+            <h2>Enhanced To-Do List</h2>
+            <div style="display: inline-flex; width: 100%;">
+                <input type="text" id="listInput" placeholder="Enter Task">
+                <button type="button" id="addTaskBtn"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <div class="task-options">
+                <div class="datetime-picker">
+                    <input type="date" id="taskDate" min="">
+                    <input type="time" id="taskTime">
+                </div>
+                <div class="reminder-options">
+                    <label>
+                        <input type="checkbox" id="setReminder"> Set Reminder
+                    </label>
+                    <select id="reminderRepeat" disabled>
+                        <option value="none">No repeat</option>
+                        <option value="daily">Daily</option>
+                        <option value="weekly">Weekly</option>
+                    </select>
+                </div>
+            </div>
         </div>
+
+        <div class="tabs">
+            <button class="tab active" data-tab="current">Current Tasks</button>
+            <button class="tab" data-tab="completed">Completed</button>
+            <button class="tab" data-tab="history">History</button>
         </div>
 
         <div id="listContainer">
-            <h3>Your Tasks</h3>
-
-            <ol id="listBox"></ol>
+            <div class="tab-content active" id="current-tab">
+                <h3>Your Tasks</h3>
+                <ol id="listBox" class="sortable"></ol>
+            </div>
+            <div class="tab-content" id="completed-tab">
+                <h3>Completed Tasks</h3>
+                <ol id="completedBox" class="sortable"></ol>
+            </div>
+            <div class="tab-content" id="history-tab">
+                <h3>Task History</h3>
+                <div id="historyBox"></div>
+            </div>
         </div>
     </div>
+
+    <audio id="reminderAlarm" src="https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3" preload="auto"></audio>
+    
     <script src="app.js"></script>
 </body>
 </html>
