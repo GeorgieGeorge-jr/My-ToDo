@@ -60,7 +60,7 @@ button{
 }
 
 #listContainer{
-    height: 21rem;
+    height: 80%;
     width: 50%;
     box-shadow: 1px 1px 10px rgba(9, 47, 219, 0.445);
 }
