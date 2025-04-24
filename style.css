@@ -1,82 +1,117 @@
 @import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
 
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: rgb(255, 255, 255);
     font-family: "Winky Rough", sans-serif;
-   }
-
-
-
-
-body{
-    background: linear-gradient(60deg, rgba(150, 37, 224, 0.658), rgb(217, 155, 233));
 }
 
-#container{
-    /* background-color: rgb(71, 130, 240); */
+body {
+    background: linear-gradient(60deg, rgba(150, 37, 224, 0.658), rgb(217, 155, 233));
+    min-height: 100vh;
+    padding: 20px;
+}
+
+#container {
     background: linear-gradient(45deg, rgba(230, 233, 235, 0.658), rgb(236, 234, 234));
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    flex-direction: column;
     margin: 0 auto;
-    height: 20rem;
-    max-width: 600px;
-    margin-top: 100px;
-    gap: 10px;
+    max-width: 800px;
+    margin-top: 50px;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 -4px 15px rgba(255, 255, 255, 0.2);
 }
 
-.text{
+.text {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-   }
+    gap: 15px;
+}
 
-input{
-    padding: 7px;
+input {
+    padding: 10px;
     border: none;
-    outline: navajowhite;
+    outline: none;
     font-weight: 500;
     font-size: 14px;
     color: rgb(58, 57, 58);
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     font-family: "Poppins", sans-serif;
+    flex-grow: 1;
 }
 
-button{
-    padding: 7px 12px;
+button {
+    padding: 10px 15px;
     border: 1px solid #fff;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 15px;
     background-color: rgba(255, 228, 196, 0);
     color: rgb(126, 126, 126);
     font-size: large;
     font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-#listContainer{
+button:hover {
+    background-color: rgba(194, 77, 230, 0.541);
+    color: white;
+}
+
+#listContainer {
     height: auto;
-    max-height: 80%;
-    width: 50%;
+    max-height: 400px;
+    width: 100%;
     box-shadow: 1px 1px 10px rgba(9, 47, 219, 0.445);
+    border-radius: 10px;
+    overflow: hidden;
 }
 
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.tab {
+    padding: 8px 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 5px 5px 0 0;
+    font-size: 14px;
+}
+
+.tab.active {
+    background: rgba(194, 77, 230, 0.541);
+    color: white;
+}
+
+.tab-content {
+    display: none;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 0 0 10px 10px;
+}
+
+.tab-content.active {
+    display: block;
+}
 
 #listContainer {
     position: relative;
-    overflow-y: scroll;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     box-shadow: inset 8px 8px 15px rgba(0, 0, 0, 0.2), inset -8px -8px 15px rgba(255, 255, 255, 0.5);
 }
 
 #listContainer::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
 }
 
 #listContainer::before {
@@ -90,7 +125,6 @@ button{
     animation: moveAround 6s linear infinite;
     z-index: 2;
 }
-
 
 @keyframes moveAround {
     0% {
@@ -119,84 +153,178 @@ button{
     }
 }
 
-
-
-
-
-
-
-
-
-h3{
+h3 {
     margin: 5px 3px;
     text-align: center;
-    color:  rgb(88, 78, 78);
-
+    color: rgb(88, 78, 78);
 }
 
-#listBox, ol{
+#listBox, #completedBox, ol {
     list-style-position: outside;
-    list-style-type:decimal;
+    list-style-type: decimal;
     margin: 5px 10px;
-    
 }
 
-#listBox li{
+#listBox li, #completedBox li {
     background-color: rgba(216, 97, 200, 0.233);
-    padding: 9px;
-    margin: 4px 0;
+    padding: 12px;
+    margin: 8px 0;
     font-size: 14.5px;
-    display: inline-flex;
+    display: flex;
     width: 100%;
     border-radius: 20px;
-    color:  rgb(88, 78, 78);
+    color: rgb(88, 78, 78);
     font-weight: 550;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 3px 2px rgb(28, 109, 129);
-    list-style-type: decimal;
+    cursor: move;
+    transition: all 0.3s ease;
 }
 
-#listBox button{
+#listBox li:hover, #completedBox li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 5px rgba(28, 109, 129, 0.4);
+}
+
+.task-content {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.task-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.task-details {
+    font-size: 12px;
+    color: rgb(126, 126, 126);
+    margin-top: 5px;
+    font-family: "Poppins", sans-serif;
+}
+
+#listBox button, #completedBox button {
     box-shadow: 0 1px 2px rgb(28, 109, 129);
     background-color: rgba(194, 77, 230, 0.541);
-    color: rgb(126, 126, 126);
+    color: white;
     border-radius: 4px;
     font-size: 11px;
-    padding: 4px 6px;
+    padding: 5px 8px;
     border: none;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#listBox button:hover, #completedBox button:hover {
+    transform: scale(1.1);
+}
+
+.task-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.datetime-picker {
+    display: flex;
+    gap: 10px;
+}
+
+.datetime-picker input {
+    border-radius: 15px !important;
+    flex-grow: 1;
+    font-family: "Poppins", sans-serif;
+}
+
+.reminder-options {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: "Poppins", sans-serif;
+}
+
+.reminder-options label {
+    color: rgb(88, 78, 78);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.reminder-options select {
+    padding: 5px;
+    border-radius: 15px;
+    border: none;
+    font-family: "Poppins", sans-serif;
+    color: rgb(58, 57, 58);
+    background-color: white;
+}
+
+#historyBox {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.history-item {
+    background-color: rgba(216, 97, 200, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;
+    color: rgb(88, 78, 78);
+    font-size: 13px;
+    border-left: 3px solid rgba(194, 77, 230, 0.541);
+}
+
+.history-item .task-name {
+    font-weight: bold;
+}
+
+.history-item .timestamp {
+    font-size: 11px;
+    color: rgb(126, 126, 126);
+    margin-top: 3px;
+}
+
+.sortable-ghost {
+    opacity: 0.5;
+    background: rgba(194, 77, 230, 0.3);
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.7;
 }
 
 @media screen and (max-width: 600px) {
-    #container{
-        flex-direction: column;
-        height: 600px;
+    #container {
+        margin-top: 20px;
         padding: 15px;
-        width: 80%;
+        width: 95%;
     }
-    #listContainer{
-        width: 100%;
-        margin-bottom: 1px;
-        
+
+    .task-options {
+        flex-direction: column;
     }
-    input{
-        width: 100%;
-        
+
+    .datetime-picker {
+        flex-direction: column;
     }
-    button{
-        width: 15%;
+
+    #listBox li, #completedBox li {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    #listBox li{
-        font-size: 14px;
-        
+
+    .task-actions {
+        align-self: flex-end;
+        margin-top: 5px;
     }
-    #listBox button{
+
+    .tab {
+        padding: 5px 10px;
         font-size: 12px;
-        padding: 2px;
-        margin: 0;
-border: 1px solid rgb(255, 255, 255);
-width: 21px;
     }
-    
 }
