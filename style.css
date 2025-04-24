@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    font-family: "Winky Rough", sans-serif;
+   }
+
+
+
+
+body{
+    background: linear-gradient(60deg, rgba(150, 37, 224, 0.658), rgb(217, 155, 233));
+}
+
+#container{
+    /* background-color: rgb(71, 130, 240); */
+    background: linear-gradient(45deg, rgba(230, 233, 235, 0.658), rgb(236, 234, 234));
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    height: 20rem;
+    max-width: 600px;
+    margin-top: 100px;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 -4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   }
+
+input{
+    padding: 7px;
+    border: none;
+    outline: navajowhite;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(58, 57, 58);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    font-family: "Poppins", sans-serif;
+}
+
+button{
+    padding: 7px 12px;
+    border: 1px solid #fff;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    background-color: rgba(255, 228, 196, 0);
+    color: rgb(126, 126, 126);
+    font-size: large;
+    font-weight: 600;
+}
+
+#listContainer{
+    height: 17rem;
+    width: 50%;
+    box-shadow: 1px 1px 10px rgba(9, 47, 219, 0.445);
+}
+
+
+
+#listContainer {
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 8px 8px 15px rgba(0, 0, 0, 0.2), inset -8px -8px 15px rgba(255, 255, 255, 0.5);
+}
+
+#listContainer::before {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgb(233, 119, 229), rgba(233, 172, 245, 0.1));
+    box-shadow: 0 0 10px 7px rgba(245, 203, 247, 0.7);
+    animation: moveAround 6s linear infinite;
+    z-index: 2;
+}
+
+
+@keyframes moveAround {
+    0% {
+        top: 0;
+        left: 0;
+    }
+    25% {
+        top: 0;
+        left: 100%;
+        transform: translateX(-100%);
+    }
+    50% {
+        top: 100%;
+        left: 100%;
+        transform: translate(-100%, -100%);
+    }
+    75% {
+        top: 100%;
+        left: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+}
+
+
+
+
+
+
+
+
+
+h3{
+    margin: 5px 3px;
+    text-align: center;
+    color:  rgb(88, 78, 78);
+
+}
+
+#listBox, ol{
+    list-style-position: outside;
+    list-style-type:decimal;
+    margin: 5px 10px;
+    
+}
+
+#listBox li{
+    background-color: rgba(216, 97, 200, 0.233);
+    padding: 9px;
+    margin: 4px 0;
+    font-size: 14.5px;
+    display: inline-flex;
+    width: 100%;
+    border-radius: 20px;
+    color:  rgb(88, 78, 78);
+    font-weight: 550;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 2px rgb(28, 109, 129);
+    list-style-type: decimal;
+}
+
+#listBox button{
+    box-shadow: 0 1px 2px rgb(28, 109, 129);
+    background-color: rgba(194, 77, 230, 0.541);
+    color: rgb(126, 126, 126);
+    border-radius: 4px;
+    font-size: 11px;
+    padding: 4px 6px;
+    border: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    #container{
+        flex-direction: column;
+        height: 450px;
+        padding: 15px;
+        width: 80%;
+    }
+    #listContainer{
+        width: 100%;
+        margin-bottom: 1px;
+        
+    }
+    input{
+        width: 100%;
+        
+    }
+    button{
+        width: 15%;
+    }
+    #listBox li{
+        font-size: 14px;
+        
+    }
+    #listBox button{
+        font-size: 12px;
+        padding: 2px;
+        margin: 0;
+border: 1px solid rgb(255, 255, 255);
+width: 21px;
+    }
+    
+}
